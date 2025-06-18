@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Form Tags</h1>
+    <form>
+    <!-- <from action="server.jsp" method="POST"> -->
+        <!-- <p>
+        <input type="text" autofocus placeholder="Enter name" required/>
+        </p> -->
+        <!-- <p>
+        <input type="text"value="Aravind" disabled/>
+        </p> -->
+        <p>
+        <input type="text" required size="100px" maxlength="5"/>
+        </p>
+        <button>Submit</button>
+        <input type="submit"/>
+    </form>
+    <fieldset>
+        <legend>Registration Form</legend>
+    <form>
+        <p><input type="text" placeholder="Enter Name" required autofocus/></p>
+        <p><input type="text" placeholder="Enter Email" required autofocus/></p>
+        <p><input type="password" placeholder="password" required autofocus/></p>
+        <p>
+            <input type="checkbox"/>Javascript
+            <input type="checkbox"/>CSS
+            <input type="checkbox"/>HTML
+        </p>
+        <p><input type="date"/></p>
+        <p>
+            <input type="radio" name="batch"/>Morning
+            <input type="radio" name="batch"/>AfterNoon
+            <input type="radio" name="batch"/>Evening
+        </p>
+        <p>
+            <select multiple>
+                <optgroup label="India">
+                <option>Delhi</option>
+                <option>Hydrabad</option>
+                <option>Chennai</option>
+                </optgroup>
+                <optgroup label="USA">
+                <option>Columbus</option>
+                <option>jacksonvile</option>
+                <option>Miame</option>
+                </optgroup>
+            </select>
+        </p>
+        <p><input type="number" placeholder="Only Number"/></p>
+        <p><input type="file"/></p>
+        <p><input type="color"/></p>
+        <p><label for="chk">Remember Me.</label><input type="checkbox" id="chk"/></p>
+        <p><textarea rows="4" cols="50" placeholder="About me"></textarea></p>
+        <p>
+            <input list="country"/>
+            <datalist id="country">
+                <option>India</option>
+                <option>USA</option>
+                <option>UK</option>
+            </datalist>
+        </p>
+        <button>Login</button>
+    </form>
+    </fieldset>
+</body>
+</html>
