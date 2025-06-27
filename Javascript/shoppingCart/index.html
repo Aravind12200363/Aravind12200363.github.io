@@ -1,36 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Shopping Cart</h1>
-  <ul class="nav">
-    <li>Home</li>
-    <li>Cart</li>
-  </ul>
-  <hr>
-
-  <div id="root">
-    <div class="product-list" id="product-list">
-      <!-- Products will be injected by JS -->
-    </div>
-
-    <div class="cart-summary">
-      <h2>Cart</h2>
-      <div id="cart-items">
-        <!-- Cart items will be injected here -->
-      </div>
-      <h3 id="total">Total: $0</h3>
-    </div>
-  </div>
-
-  <hr>
-  <h4>Shopping Cart. Copyright 2025. All rights reserved.</h4>
-
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body onload="showProducts()">
+    <h1>Shopping Cart</h1>
+    <ul>
+      <li onclick="showProducts()">Home</li>
+      <li onclick="showCart()">Cart</li>
+    </ul>
+    <hr />
+    <div id="root"></div>
+    <hr />
+    <h4>Shopping Cart. Copyright 2025. All rights reserved.</h4>
+    <script src="app.js"></script>
+  </body>
 </html>

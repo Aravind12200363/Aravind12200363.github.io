@@ -1,77 +1,43 @@
+//shopping cart
 let cart = {};
 const products = [
   { id: 1, name: "Product 1", price: 25 },
   { id: 2, name: "Product 2", price: 50 },
   { id: 3, name: "Product 3", price: 75 },
 ];
-
-// Render product cards
-function renderProducts() {
-  const productList = document.getElementById("product-list");
-  productList.innerHTML = "";
-  products.forEach((product) => {
-    const productCard = document.createElement("div");
-    productCard.className = "product-card";
-    productCard.innerHTML = `
-      <h3>${product.name}</h3>
-      <p>Price: $${product.price}</p>
-      <button onclick="addToCart(${product.id})">Add to Cart</button>
-    `;
-    productList.appendChild(productCard);
+const showProducts = () => {
+  let str = "<div class='row'>";
+  products.map((value) => {
+    str += `<div>
+    <h3>${value.name}</h3>
+    <h4>$${value.price}</h4>
+    <button onclick='addToCart(${value.id})'>Add to Cart</button>
+    </div>`;
   });
-}
+  str += "</div>";
+  let r = document.getElementById("root");
+  r.innerHTML = str;
+};
 
-// Add product to cart
 function addToCart(id) {
-  cart[id] = (cart[id] || 0) + 1;
-  renderCart();
+  cart = { ...cart, [id]: 1 };
 }
-
-// Increment quantity
 function increment(id) {
-  cart[id]++;
-  renderCart();
+  cart = { ...cart, [id]: cart[id] + 1 };
 }
-
-// Decrement quantity
 function decrement(id) {
-  cart[id]--;
-  if (cart[id] === 0) {
-    delete cart[id];
-  }
-  renderCart();
+  cart = { ...cart, [id]: cart[id] - 1 };
 }
-
-// Render cart summary
-function renderCart() {
-  const cartItems = document.getElementById("cart-items");
-  const totalDisplay = document.getElementById("total");
-  cartItems.innerHTML = "";
-
-  let total = 0;
-
-  products.forEach((product) => {
-    const qty = cart[product.id];
-    if (qty) {
-      const item = document.createElement("div");
-      item.className = "cart-item";
-      const subtotal = qty * product.price;
-      total += subtotal;
-
-      item.innerHTML = `
-        <div>${product.name} - $${product.price} × ${qty} = $${subtotal}</div>
-        <div>
-          <button onclick="increment(${product.id})">+</button>
-          <button onclick="decrement(${product.id})">-</button>
-        </div>
-      `;
-      cartItems.appendChild(item);
-    }
+function showCart() {
+  let str = "";
+  products.map((value) => {
+    cart[value.id] > 0 && (str += `<li>${value.name}-$${value.price}-<button>-</button>${cart[value.id]}<button>+</button>-$${value.price*cart[value.id]}</li>`);
   });
-
-  totalDisplay.textContent = `Total: $${total}`;
+  let r = document.getElementById("root");
+  r.innerHTML = str;
 }
 
-// Initial render
-renderProducts();
-renderCart();
+const total = products.reduce((sum, value) => {
+  return sum + value.price * (cart[value.id] ?? 0);
+}, 0);
+console.log(`Order Value:${total}`);
